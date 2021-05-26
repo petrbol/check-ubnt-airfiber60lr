@@ -18,5 +18,7 @@ func Start() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+	commands := []string{"ssh"}
+	checkCommandAvailable(commands)
 	opts.getDeviceData()
 }
