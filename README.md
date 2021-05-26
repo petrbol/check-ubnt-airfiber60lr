@@ -1,5 +1,7 @@
 ## UBNT AirFiber 60 LR Icinga plugin
 
+ssh command to get values from airfiber60lr
+
 ### Sample output 
 STATE OK |Rssi(dBm)=-37;;;; Cinr(dBm)=19;;;; TxMsc=9;;;; RxMsc=9;;;; Capacity(*100)=875;;;; 
 
