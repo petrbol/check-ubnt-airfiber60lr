@@ -9,10 +9,13 @@ import (
 )
 
 func (opts *ubntCheckStartupOpts) getDeviceData() {
-	//sshpass -p $password ssh -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -n $username@${ip_list[$i]} "fwupdate -m /tmp/fwupdate.bin > /dev/null 2>&1";
+	if opts.PrivateCrt == "" {
+		log.Fatal("Private certificate is empty")
+	}
+
 	loginArgs := opts.User + "@" + opts.Host
 	commandToExecute := "\"wstalist\""
-	sshOutput, err := exec.Command("ssh", "-q", "-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null", "-n", loginArgs, commandToExecute).Output()
+	sshOutput, err := exec.Command("ssh", "-i", opts.PrivateCrt, "-q", "-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null", "-n", loginArgs, commandToExecute).Output()
 	if err != nil {
 		log.Fatal(err, string(sshOutput))
 	}
