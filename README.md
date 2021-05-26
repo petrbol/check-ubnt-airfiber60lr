@@ -1,8 +1,12 @@
 ## UBNT AirFiber 60 LR Icinga plugin
 
-ssh command to get values from airfiber60lr
+- using ssh command to get values from airfiber60lr
+- your ssh public key must be uploaded to the airfiber60lr
+- prebuild executable file above
 
-### Sample output 
+### Example usege
+./check-ubnt-airfiber60lr -u admin -H 10.10.5.98 
+
 STATE OK |Rssi(dBm)=-37;;;; Cinr(dBm)=19;;;; TxMsc=9;;;; RxMsc=9;;;; Capacity(*100)=875;;;; 
 
 ### Startup arguments
